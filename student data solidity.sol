@@ -1,11 +1,4 @@
-//Step 1: Open Remix IDE.
-
-//Step 2: Click on File Explorers and select Solidity in the environment and create a new file StudentMarksMangmtSys.sol by clicking on New File section.
-
-//Step 3: Build a smart contract that contains all the details of the student with the help of Remix IDE by clicking on the file name.
-
-// Solidity program to implement
-// the above approach
+// SPDX-License-Identifier: MIT
 pragma solidity >= 0.7.0<0.8.0;
 
 // Build the Contract
@@ -59,16 +52,3 @@ contract MarksManagmtSys
 	}
 }
 
-//Step 4: After building the contract compile it. Select the compiler version before clicking on Compile button. 
-
-//Compile the contract
-
-//Step 5: After successful compilation, to deploy the contract, select the Environment JavaScript VM (Berlin) before clicking on the Deploy button.
-
-//Deploy the contract
-
-//Step 6: If the contract is successfully deployed then deployed contract is obtained. Open the deployed contract and add the student details and transact it.
-
-//Deployed contract
-
-//Step 7: Add the bonus marks if you want to give them to the student and transact it after that click on the stdCount. One can see the student details after calling the stdRecords by entering the stdCount.
