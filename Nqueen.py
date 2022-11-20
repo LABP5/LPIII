@@ -95,11 +95,7 @@ void printSolution(int board[N][N])
 }
 
 /* A utility function to check if a queen can
-be placed on board[row][col]. Note that this
-function is called when "col" queens are
-already placed in columns from 0 to col -1.
-So we need to check only left side for
-attacking queens */
+be placed on board[row][col]. */
 bool isSafe(int board[N][N], int row, int col)
 {
 	int i, j;
