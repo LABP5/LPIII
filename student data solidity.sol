@@ -1,54 +1,31 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >= 0.7.0<0.8.0;
-
-// Build the Contract
-contract MarksManagmtSys
+pragma solidity ^0.6;
+contract Student_management
 {
-	// Create a structure for
-	// student details
-	struct Student
-	{
-		int ID;
-		string fName;
-		string lName;
-		int marks;
-	}
+    struct Student 
+    {
+        int stud_id;
+        string name;
+        string department;
+    }
+    Student[] Students;
 
-	address owner;
-	int public stdCount = 0;
-	mapping(int => Student) public stdRecords;
+    function add_stud(int stud_id, string memory name, string memory department) public
+    {
+        Student memory stud = Student(stud_id,name,department);
+        Students.push(stud);
+    }
 
-	modifier onlyOwner
-	{
-		require(owner == msg.sender);
-		_;
-	}
-	constructor()
-	{
-		owner=msg.sender;
-	}
-
-	// Create a function to add
-	// the new records
-	function addNewRecords(int _ID,
-						string memory _fName,
-						string memory _lName,
-						int _marks) public onlyOwner
-	{
-		// Increase the count by 1
-		stdCount = stdCount + 1;
-
-		// Fetch the student details
-		// with the help of stdCount
-		stdRecords[stdCount] = Student(_ID, _fName,
-									_lName, _marks);
-	}
-
-	// Create a function to add bonus marks
-	function bonusMarks(int _bonus) public onlyOwner
-	{
-		stdRecords[stdCount].marks =
-					stdRecords[stdCount].marks + _bonus;
-	}
+    function getStudent(int stud_id) public view returns(string memory, string memory)
+    {
+        for (uint i=0; i<Students.length; i++)
+        {
+            Student memory stud = Students[i];
+            if(stud.stud_id==stud_id)
+            {
+                return(stud.name,stud.department);
+            }
+        }
+        return("Not Found", "Not Found");
+    }
 }
-
